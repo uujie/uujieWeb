@@ -1,0 +1,153 @@
+<html>
+    <head>
+    <title>Web Test</title>
+    </head>
+    <ul class ="drop-down-menu">
+        <link rel ="stylesheet" href="Web.css" >
+        <li>
+            <a href='index.html'>Home
+            </a>
+        </li>
+        <li>
+            <a href="#">About CSE</a>
+            <ul>
+                <li>
+                    <a href="#">作業系統概論</a>
+                </li>
+                <li>
+                    <a href="#">組合語言與計算機組織</a>
+                </li>
+                <li>
+                    <a href="#">資料結構</a>
+                </li>
+                <li>
+                    <a href="#">演算法</a>
+                </li>
+                <li>
+                    <a href="#">離散數學</a>
+                </li>
+                <li>
+                    <a href="#">線性代數</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href='about us.html'>About Us</a>
+        </li>
+        <li>
+            <a href='kimetsunoyaiba.html'>鬼滅の刃</a>
+        </li>
+        <li>
+            <a href='Chicken Soup for the Soul.html'>Chicken Soup for the Soul</a>
+        </li>
+        <li>
+            <a href="#">投資理財</a>
+            <ul>
+                <li>
+                    <a href='ETF.html'>ETF</a>
+                </li>
+                <li>
+                    <a href='richdad.html'>富爸爸窮爸爸</a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+            </ul>
+        </li>
+    </ul>    
+    <body bgcolor="#dcdcdc"></body>
+    <h1 style="font-family:verdana;text-align:center;">--About Us--</h1>
+    <div align="center"><img src="./72890001.JPG" width="500" height="333"> </div> 
+    <p style="font-family: 'Open Sans', Arial, sans-serif;">我們在一起的日子：２０２１／７／１４</p>
+    <p style="font-family: 'Open Sans', Arial, sans-serif;"></p>
+    <hr>
+
+    <script language="JavaScript">
+        function HowLongSince(startyear, startmonth, startdate) {
+          var DaysInMonth = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+          var DaysInLeapYear = new Array(31,29,31,30,31,30,31,31,30,31,30,31);
+          var today = new Date();
+          var thisyear = today.getFullYear();
+          var thismonth = today.getMonth();
+          var thisdate = today.getDate();
+          mstart = new Date(startyear, startmonth, 1);
+          mend = new Date(thisyear, thismonth, 1);
+          ydiff = thisyear - mstart.getFullYear();
+          mdiff = thismonth - mstart.getMonth();
+          days1 = (mstart - new Date(startyear, startmonth - 1,startdate))/(24*60*60*1000) - 1;
+          days2 = (new Date(thisyear,thismonth,thisdate) - mend)/(24*60*60*1000) + 1;
+          dayst = days1 + days2;
+          if (dayst >= DaysInMonth[startmonth - 1])  {
+            mdiff += 1;
+            dayst -= DaysInMonth[startmonth - 1];
+          }
+          if (ydiff == 0 && mdiff == 0 && dayst == 0)
+            message = "今天是第一天喔！";
+          else {
+            if (mdiff > 11) { mdiff = 0; ydiff++; }
+            if (mdiff < 0) { mdiff = mdiff + 12; ydiff--; }
+            message = ydiff*365 + mdiff*30 + dayst + 1 +" 天了";
+          }
+          return message;
+        }
+        </script>
+
+    <p>我們已經在一起:
+    <script language="JavaScript">document.write(HowLongSince(2021,7,14)); </script>
+    </p>
+    <hr>
+    <!---->
+    <head>  
+        <meta charset =" utf-8">
+        <script type = "text/javascript"> 
+        window.onload = function(){
+          var timer = null;
+          var show = document.getElementById("show");
+          function show_date_time(){   
+            var target = new Date("2022/8/17");
+            var today = new Date();
+            var timeold = (target.getTime()-today.getTime());   
+            var sectimeold = timeold/1000   
+            var secondsold = Math.floor(sectimeold);   
+            var msPerDay = 24*60*60*1000   
+            var e_daysold = timeold/msPerDay   
+            var daysold = Math.floor(e_daysold);   
+            var e_hrsold = (e_daysold-daysold)*24;   
+            var hrsold = Math.floor(e_hrsold);   
+            var e_minsold = (e_hrsold-hrsold)*60;   
+            var minsold = Math.floor((e_hrsold-hrsold)*60);   
+            var seconds = Math.floor((e_minsold-minsold)*60);
+            if( daysold < 0 ) {
+              document.getElementById("time").innerHTML="400天到啦！";
+              clearInterval(timer);
+            } 
+            else{   
+              if (daysold<10) {daysold="0"+daysold}
+              if (hrsold<10) {hrsold="0"+hrsold}
+              if (minsold<10) {minsold="0"+minsold}
+              if (seconds<10) {seconds="0"+seconds}
+              document.getElementById("show").style.textAlign = "center";
+              document.getElementById("show").style.fontWeight = "bold"
+              document.getElementById("show").style.fontFamily = "Arial"
+              show.innerText="距離400天還有 : "+daysold+" 天 "+hrsold+" 小時 "+minsold+" 分 "+seconds+" 秒 "; 
+            }   
+          }   
+          timer=setInterval(show_date_time,1000);
+        } 
+        </script>
+        </head> 
+        <body> 
+        <div id="show"></div>
+        </body> 
+        
+    <!----->
+</html>
